@@ -24,6 +24,53 @@
     <div class="user-box">Wyndham Rio Barra</div>
   </header>
 
+  <!-- TOOLBAR: Botões + Filtros -->
+  <section class="filters fade-in" style="padding:12px 20px; gap:12px; flex-wrap:wrap">
+    <!-- Botões CRUD -->
+    <div style="display:flex; gap:8px; align-items:center">
+      <button class="btn" id="btnAdd"    title="Adicionar nova solicitação">Adicionar</button>
+      <button class="btn" id="btnEdit"   title="Editar solicitação selecionada">Editar</button>
+      <button class="btn" id="btnDelete" title="Excluir solicitação selecionada">Excluir</button>
+    </div>
+
+    <!-- Separador flexível -->
+    <div style="flex:1"></div>
+
+    <!-- Filtros -->
+    <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap">
+      <label class="muted" for="selStatus">Status</label>
+      <select id="selStatus" class="btn" style="min-width:140px">
+        <option value="">Todos</option>
+        <option>Em aberto</option>
+        <option>Pendente</option>
+        <option>Finalizado</option>
+        <option>Cancelado</option>
+      </select>
+
+      <label class="muted" for="selSetor">Setor</label>
+      <select id="selSetor" class="btn" style="min-width:160px">
+        <option value="">Todos</option>
+        <option>Tecnologia</option>
+        <option>Manutenção</option>
+        <option>Governança</option>
+      </select>
+
+      <label class="muted" for="dateStart">Início</label>
+      <input id="dateStart" type="date" class="btn" style="min-width:150px" />
+
+      <label class="muted" for="dateEnd">Fim</label>
+      <input id="dateEnd" type="date" class="btn" style="min-width:150px" />
+
+      <input id="txtSearch" type="search" class="btn" placeholder="Buscar (ID, quarto, tipo, texto…)" style="min-width:220px" />
+    </div>
+  </section>
+
+  <!-- Filtro ativo + limpar -->
+  <section class="filters fade-in" style="padding:0 20px 8px 20px; gap:10px">
+    <div id="activeFilter" class="active-filter" style="display:none;"></div>
+    <button class="btn outline" id="btnClearFilter" style="display:none;">Limpar filtro</button>
+  </section>
+
   <!-- KPIs -->
   <section class="kpis fade-in" id="kpis">
     <div class="kpi"><h3>Total</h3><div class="big" id="kpiTotal">–</div></div>
@@ -31,12 +78,6 @@
     <div class="kpi"><h3>Em andamento</h3><div class="big" id="kpiAndamento">–</div></div>
     <div class="kpi"><h3>Concluídos</h3><div class="big" id="kpiConcluidos">–</div></div>
     <div class="kpi"><h3>Cancelados</h3><div class="big" id="kpiCancelados">–</div></div>
-  </section>
-
-  <!-- Filtro ativo + limpar -->
-  <section class="filters fade-in">
-    <div id="activeFilter" class="active-filter" style="display:none;"></div>
-    <button class="btn outline" id="btnClearFilter" style="display:none;">Limpar filtro</button>
   </section>
 
   <!-- Gráficos em cards -->
