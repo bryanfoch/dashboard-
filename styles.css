@@ -1,0 +1,78 @@
+/* ====== Tema Wyndham Rio Barra ====== */
+:root{
+  --wy-blue-1: #0f4c81;
+  --wy-blue-2: #1c6aa3;
+  --wy-blue-3: #0b3559;
+  --bg: #f5f7fa;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #6b7280;
+  --ok: #22c55e;
+  --warn: #f59e0b;
+  --danger: #ef4444;
+  --shadow: 0 14px 28px rgba(15,76,129,.10), 0 10px 10px rgba(15,76,129,.06);
+  --radius-xl: 18px;
+  --radius: 12px;
+}
+
+* { box-sizing: border-box; }
+html, body { height:100%; }
+body {
+  margin: 0;
+  background: radial-gradient(1200px 800px at 80% -100px, #eaf2f9 0%, #f7f9fc 55%, var(--bg) 100%);
+  color: var(--text);
+  font-family: "Segoe UI", Roboto, system-ui, -apple-system, sans-serif;
+  line-height: 1.35;
+}
+
+.topbar{
+  position: sticky; top:0; z-index: 5;
+  background: linear-gradient(135deg, var(--wy-blue-1), var(--wy-blue-2));
+  color: #fff; padding: 16px 22px;
+  display: flex; align-items: center; justify-content: space-between;
+  box-shadow: 0 10px 24px rgba(15,76,129,.25);
+}
+.topbar h1{ margin: 0; font-size: clamp(18px, 2.2vw, 24px); font-weight: 700; letter-spacing:.2px; display:flex; align-items:center; gap:12px; }
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand img{ height: 28px; width: auto; display:block; filter: drop-shadow(0 2px 4px rgba(0,0,0,.15)); }
+.user-box{ opacity:.9; font-weight:600; }
+
+/* KPIs */
+.kpis{ display:grid; grid-template-columns: repeat(5, 1fr); gap: 14px; padding: 18px 20px 8px; }
+.kpi{ background: linear-gradient(180deg, #ffffff 0%, #fbfdff 100%); border-radius: var(--radius-xl); box-shadow: var(--shadow); padding: 16px; border: 1px solid rgba(15,76,129,.06); transition: transform .15s ease, box-shadow .2s ease; }
+.kpi:hover{ transform: translateY(-2px); box-shadow: 0 18px 34px rgba(15,76,129,.14); }
+.kpi h3{ margin: 0 0 8px; color: var(--muted); font-size: 13px; font-weight: 700; letter-spacing:.3px; text-transform: uppercase;}
+.kpi .big{ font-size: clamp(22px, 3vw, 30px); font-weight: 800; color: var(--wy-blue-1); }
+
+/* Filtros */
+.filters{ display:flex; gap:12px; align-items:center; flex-wrap:wrap; padding: 8px 20px 12px; }
+.active-filter{ background:#e6f4ff; color:#0b5394; border:1px solid #bfd7ec; padding:6px 10px; border-radius:999px; font-weight:700; }
+.tip{ margin: 6px 2px 0; display:block; }
+
+/* Botões */
+.btn{ background: var(--wy-blue-1); color:#fff; border:none; padding: 10px 14px; border-radius: var(--radius); cursor:pointer; box-shadow: var(--shadow); font-weight:700; letter-spacing:.2px; }
+.btn:hover{ filter:brightness(1.04); }
+.btn.outline{ background:#fff; color: var(--wy-blue-1); border: 1px solid var(--wy-blue-1); box-shadow: 0 4px 10px rgba(15,76,129,.08); }
+
+/* Gráficos (cards) */
+.cards{ display:grid; gap:16px; grid-template-columns: repeat(3, minmax(260px,1fr)); padding: 0 20px 16px; align-items:stretch; }
+.chart-card{ background:#fff; border-radius: var(--radius-xl); box-shadow: var(--shadow); border:1px solid rgba(15,76,129,.06); padding:12px 12px 8px; display:flex; flex-direction:column; }
+.chart-card h3{ margin: 4px 6px 8px; font-size: 14px; font-weight: 800; color: var(--wy-blue-3); letter-spacing:.2px; }
+.chart-area{ position: relative; flex: 1 1 auto; height: 300px; min-height: 260px; }
+.chart-area canvas{ position:absolute; inset:0; width:100% !important; height:100% !important; }
+
+/* Tabela */
+.table-card{ background:#fff; border-radius: var(--radius-xl); margin: 0 20px 26px; padding: 16px; box-shadow: var(--shadow); border: 1px solid rgba(15,76,129,.06); }
+.table-card h2{ margin: 6px 0 12px; }
+.table{ width:100%; border-collapse: collapse; }
+.table th, .table td{ padding: 12px 10px; border-bottom: 1px solid #eef2f6; vertical-align: top; }
+.table th{ text-align:left; color: var(--muted); font-weight:800; font-size: 12px; letter-spacing:.3px; text-transform: uppercase; }
+.table tr:hover td{ background: #f9fbff; }
+.msg{ color: var(--muted); min-height:20px; padding:4px 2px; }
+
+/* Responsivo */
+@media (max-width: 1100px){
+  .kpis{ grid-template-columns: repeat(2,1fr); }
+  .cards{ grid-template-columns: 1fr; }
+  .chart-area{ height: 280px; }
+}

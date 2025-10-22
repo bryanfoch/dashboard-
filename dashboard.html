@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard | Solicitações Wyndham Rio Barra</title>
+
+  <!-- CSS do tema Wyndham -->
+  <link rel="stylesheet" href="styles.css" />
+
+  <!-- Chart.js e Supabase -->
+  <script defer src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+  <script defer src="https://esm.sh/@supabase/supabase-js@2"></script>
+
+  <!-- Seu JS -->
+  <script defer src="dashboard.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1 class="brand">
+      <img src="./images/logo.jpg" alt="Wyndham Rio Barra" />
+      Dashboard de Solicitações
+    </h1>
+    <div class="user-box">Wyndham Rio Barra</div>
+  </header>
+
+  <!-- KPIs -->
+  <section class="kpis fade-in" id="kpis">
+    <div class="kpi"><h3>Total</h3><div class="big" id="kpiTotal">–</div></div>
+    <div class="kpi"><h3>Abertos</h3><div class="big" id="kpiAbertos">–</div></div>
+    <div class="kpi"><h3>Em andamento</h3><div class="big" id="kpiAndamento">–</div></div>
+    <div class="kpi"><h3>Concluídos</h3><div class="big" id="kpiConcluidos">–</div></div>
+    <div class="kpi"><h3>Cancelados</h3><div class="big" id="kpiCancelados">–</div></div>
+  </section>
+
+  <!-- Filtro ativo + limpar -->
+  <section class="filters fade-in">
+    <div id="activeFilter" class="active-filter" style="display:none;"></div>
+    <button class="btn outline" id="btnClearFilter" style="display:none;">Limpar filtro</button>
+  </section>
+
+  <!-- Gráficos em cards -->
+  <section class="cards fade-in" id="cardsGrid">
+    <div class="chart-card">
+      <h3>Status</h3>
+      <div class="chart-area"><canvas id="chartStatus" aria-label="Status"></canvas></div>
+      <small class="muted tip">Clique em um status para filtrar a tabela.</small>
+    </div>
+
+    <div class="chart-card">
+      <h3>Tipos de Serviço</h3>
+      <div class="chart-area"><canvas id="chartTipos" aria-label="Tipos de Serviço"></canvas></div>
+      <small class="muted tip">Clique em um tipo para filtrar.</small>
+    </div>
+
+    <div class="chart-card">
+      <h3>Solicitações por Dia (30d)</h3>
+      <div class="chart-area"><canvas id="chartDiario" aria-label="Solicitações por Dia"></canvas></div>
+      <small class="muted tip">Clique em um dia para filtrar.</small>
+    </div>
+  </section>
+
+  <!-- Tabela -->
+  <section class="table-card fade-in" id="lista">
+    <h2>Solicitações</h2>
+    <table class="table" aria-label="Tabela de solicitações">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Data</th>
+          <th>Quarto</th>
+          <th>Tipo</th>
+          <th>Solicitação</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tbRows"></tbody>
+    </table>
+    <p id="msg" class="msg"></p>
+  </section>
+</body>
+</html>
